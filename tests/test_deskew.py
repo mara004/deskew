@@ -28,6 +28,7 @@ def test_deskew(image, expected_angle):
     angle = determine_skew(image)
     print(angle - expected_angle.expected)
     assert angle == expected_angle
+    assert False
 
 
 @pytest.mark.parametrize(
@@ -52,3 +53,4 @@ def test_deskew_higher_pressision(image, expected_angle):
     angle = determine_skew(image, num_angles=1800)
     print(angle - expected_angle.expected)
     assert angle == expected_angle
+    assert False

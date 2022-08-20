@@ -14,14 +14,17 @@ def _get_max_freq_elem(peaks: List[int]) -> List[float]:
             freqs[peak] += 1
         else:
             freqs[peak] = 1
+    print(freqs)
 
     sorted_keys = sorted(freqs.keys(), key=freqs.get, reverse=True)  # type: ignore
     max_freq = freqs[sorted_keys[0]]
 
     max_arr = []
     for sorted_key in sorted_keys:
+        print(sorted_key)
         if freqs[sorted_key] == max_freq:
             max_arr.append(sorted_key)
+    print('----')
 
     return max_arr
 
@@ -64,10 +67,13 @@ def determine_skew_dev(
     )
 
     angles_peaks_degree = [np.rad2deg(x) for x in angles_peaks]
+    print(angles_peaks_degree)
 
     if angles_peaks_degree:
         ans_arr = _get_max_freq_elem(angles_peaks_degree)
+        print(ans_arr)
         angle = np.mean(ans_arr)
+        print(angle)
     else:
         return None, angles, hough_line_out
 
